@@ -64,3 +64,65 @@ console.log("== array:", array);
 array.push('cat');
 array.push(array);
 console.log("== array:", array);
+
+console.log("== loop:")
+for (var i = 0; i < array.length; i++) {
+  console.log("  - array[" + i + "]:", array[i]);
+}
+
+function printArrayElem(elem, idx) {
+  console.log("  - array[" + idx + "]:", elem);
+}
+
+console.log("== forEach():")
+array.forEach(function (elem, idx) {
+  console.log("  - array[" + idx + "]:", elem);
+});
+array.forEach(printArrayElem);
+// array.forEach(() => {});
+
+console.log("== [ 1, 2, 3 ].join('---'):", [ 1, 2, 3 ].join('---'));
+console.log("== '1,2,3,4'.split(','):", '1,2,3,4'.split(','));
+
+console.log("");
+console.log("===================");
+console.log("== Functions");
+console.log("===================");
+
+function add(a, b, c) {
+  return a + b + c;
+}
+
+console.log("== add(1, 2, 3):", add(1, 2, 3));
+console.log("== add('1', '2', '3'):", add('1', '2', '3'));
+console.log("== add('1', 2, '3'):", add('1', 2, '3'));
+console.log("== add(['11111', '2'], 2, '3'):", add(['11111', '2'], 2, '3'));
+console.log("== Number('1') + 2:", Number('1') + 2);
+console.log("== add(1, 2, 3, 4, 5, 6):", add(1, 2, 3, 4, 5, 6));
+
+function sumAllArgs() {
+  sum = 0;
+  for (var i = 0; i < arguments.length; i++) {
+    sum += arguments[i];
+  }
+  return sum;
+}
+console.log("== sumAllArgs(1, 2, 3, 4, 5, 6):", sumAllArgs(1, 2, 3, 4, 5, 6));
+
+console.log("");
+console.log("===================");
+console.log("== Objects");
+console.log("===================");
+
+var student = {
+  'firstName': 'Luke',
+  lastName: 'Skywalker',
+  'gpa': 3.75,
+  getFullName: function (delim) {
+    return this.firstName + delim + this.lastName;
+  }
+};
+console.log("== student:", student);
+console.log("== student['firstName']:", student['firstName']);
+console.log("== student.firstName:", student.firstName);
+console.log("== student.getFullName('     '):", student.getFullName('     '));
