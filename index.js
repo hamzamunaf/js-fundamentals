@@ -122,7 +122,26 @@ var student = {
     return this.firstName + delim + this.lastName;
   }
 };
+
 console.log("== student:", student);
 console.log("== student['firstName']:", student['firstName']);
 console.log("== student.firstName:", student.firstName);
 console.log("== student.getFullName('     '):", student.getFullName('     '));
+
+function Student(firstName, lastName, gpa, id) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.gpa = gpa;
+  this.id = id || 933111111;
+}
+
+Student.prototype.getFullName = function (delim) {
+  return this.firstName + delim + this.lastName;
+};
+
+var s = new Student("Leia", "Organa", 4.0);
+console.log("== s:", s);
+console.log("== s.getFullName(' '):", s.getFullName(' '));
+
+var s2 = new Student("Han", "Solo", 4.0);
+console.log("== s2.getFullName(' '):", s2.getFullName(' '));
